@@ -16,6 +16,14 @@ void init(List &l){
 
 void add_tail(List &l, int x){
   node *p = get_node(x);
+  if(l.head = nullptr){
+    l.head = p;
+    l.tail = p;
+  }
+  else{
+    l.tail->next = p;
+    l.tail = p; 
+  }
 }
 
 node *get_node(int x){
