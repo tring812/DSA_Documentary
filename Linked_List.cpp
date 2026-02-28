@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 using namespace std;
 
 struct node{
@@ -33,6 +33,20 @@ void add_tail(List &l, int x){
     l.tail->next = p;
     l.tail = p;
   }
+}
+
+void add_head(List &l, int x){
+  node *p = get_node(x);
+  if(l.head == nullptr){
+    //If empty, head and tail will point current node
+    l.head = p;
+    l.tail = p;
+  }
+  else{
+    p->next = l.head; //Pointing current node to node head
+    l.head = p; //Set node head 
+  }
+
 }
 
 int main(){
