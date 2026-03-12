@@ -1,0 +1,42 @@
+"MÔ HÌNH CHUNG: ĐẾM CÁC NODE THỎA ĐIỀU KIỆN X GÌ GÌ ĐÓ
+Ý tưởng: đếm nhánh trái, đếm nhánh phải, xử lý gốc
+----CÁCH 1: DÙNG BIẾN CỤC BỘ------
+int countGiGiDo(Tree T) 
+{    if(!T) return 0;
+    int dem=0; ""dem là biến cục bộ, được khai báo và khởi tạo lại từ đầu mỗi lần gọi hàm
+    //duyệt cây theo cơ chế NLR: xử lý gốc trước, rồi tới trái, phải
+    if(node gốc thỏa điều kiện)
+        dem++;
+    return dem+count(nhánh trái)+count(nhánh phải);
+    //như vậy, khi gốc ko thỏa thì dem trong biểu thức trên là 0
+    //nếu gốc thỏa thì dem là 1 
+}
+int countGiGiDo(Tree T) 
+{    if(!T) return 0;
+    
+    ""duyệt cây theo cơ chế LRN: xử lý  trái, phải, gốc    
+    int x=count(nhánh trái)+count(nhánh phải);
+    if(node gốc thỏa điều kiện)
+        x++;
+    return x;
+}
+int countGiGiDo(Tree T) 
+{    if(!T) return 0;
+    
+    ""duyệt cây theo cơ chế LNR: xử lý  trái, gốc, phải, 
+    int x=count(nhánh trái);
+    if(node gốc thỏa điều kiện)
+        x++;
+    return x+count(nhánh phải);
+}
+
+CÁCH 2: DÙNG BIẾN THAM CHIẾU
+void countGiGiDo(Tree T, int &dem) ""kết quả của hàm lưu vào tham số dem
+{   if(!T) return; ""hàm kiểu void nên ko trả về giá trị gì sau return
+    if(node gốc thỏa điều kiện)
+        dem++;
+    count(nhánh trái, dem); ""kết quả đếm nhánh trái được cộng thêm vào biến dem
+    count(nhánh phải, dem); 
+    ""dem là biến tham chiếu nên được cập nhật sau mỗi lần gọi hàm, 
+    "" giá trị của dem được truyền qua các lần gọi hàm
+}"
