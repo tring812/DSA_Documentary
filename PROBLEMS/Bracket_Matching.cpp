@@ -1,63 +1,65 @@
+#include<string>
+#include<cstring>
 #include <iostream>
+
+#define MAX 2000
+#define NULLDATA -1
 
 using namespace std;
 
-struct node{
-  char value;
-  node *next;
-};
-
 struct stack{
-  node *top;
+  char arr[MAX];
+  int t;
 };
 
 void init(stack &s){
-  s.top = nullptr;
+  s.t = NULLDATA;
 }
 
-node *get_node(char x){
-  node *p = new node;
-  p->value = x;
-  p->next = nullptr;
-  return p;
+int isEmpty(stack s){
+  return (s.t == -1);
 }
 
-void push(stack &s, char x){
-  node *p = get_node(x);
-  p->next = s.top;
-  s.top = p;
+int isFull(stack s){
+  return (s.t == MAX - 1);
 }
 
-void pop(stack &s){
-  node *p = s.top;
-  s.top = s.top->next;
-  delete p;
+void Push(stack &s, char x){
+  if(isFull(s))  return;
+  s.arr[++s.t] = x;
 }
 
-bool isEmpty(stack s){
-  if(s.top == nullptr)  return 1;
-  return 0;
+void Pop(stack &s){
+  if(isEmpty(s)) return;
+  s.arr[s.t] = NULLDATA;
+  s.t--;
 }
 
-int output(stack s, string x){
+char Top(stack &s){
+  if(isEmpty(s))  return -1;
+  return s.arr[s.t];
+}
+
+bool isValid(string x){
+  stack s;
+  init(s);
   for(auto i : x){
     if(i == '(')
-      push(s, i);
+      Push(s, i);
     else{
       if(isEmpty(s))
         return 0;
       else
-        pop(s);
+        Pop(s);
     }
   }
-  if(isEmpty(s)) return 1;
-  return 0;
+  return (isEmpty(s));
 }
 
-int main(){
-  stack s;
-  init(s);
-  string x;
-  cin >> x;
-  cout << output(s, x);
+int main()
+{
+	string expr; cin>>expr;
+	cout<< isValid(expr);
+
+	return 0;
 }
