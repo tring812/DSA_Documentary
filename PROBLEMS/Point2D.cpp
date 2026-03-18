@@ -50,7 +50,7 @@ void del(List &l, node *p){
     return;
   }
   node *prev = l.head;
-  while(prev->next != p)
+  while(prev != nullptr && prev->next != p)
       prev = prev->next;
   prev->next = p->next;
   if(p == l.tail)
@@ -64,10 +64,18 @@ node *find_p(List l){
   node *p = l.head;
   node *mi = p;
   while(p != nullptr){
-    if(calc(p->value) < calc(mi->value))
+    long long d1 = calc(p->value), d2 = calc(mi->value);
+    if(d1 < d2)
       mi = p;
-    else if(calc(p->value) == calc(mi->value) && mi->value.x * mi->value.x > p->value.x * p->value.x){
-      mi = p;
+    else if(d1 == d2 ){
+      long long d1x = p->value.x * p->value.x;
+      long long d2x = mi->value.x * mi->value.x;
+      if(d1x < d2x)
+        mi = p;
+      else if(d1x == d2x){
+        if(p->value.y * p->value.y < mi->value.y * mi->value.y)
+          mi = p;
+      }
     }
     p = p->next;
   }
