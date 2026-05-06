@@ -1,0 +1,1 @@
+{"name":"Local: Matrix_neighbour","url":"d:\\UIT\\DSA\\Graph\\Matrix_neighbour.cpp","tests":[{"id":1776929418782,"input":"6 7 6\nL I J O R H\nO H\nJ H\nJ I\nR O\nO L\nL R\nR J\n1 J R\n1 L L\n2 J\n2 O\n1 I R\n2 I","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\UIT\\DSA\\Graph\\Matrix_neighbour.cpp","group":"local","local":true}
