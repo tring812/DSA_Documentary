@@ -1,0 +1,1 @@
+{"name":"Local: Quick_sort","url":"d:\\UIT\\DSA\\Sorting\\Quick_sort.cpp","tests":[{"id":1778745598500,"input":"6\n5 1 2 0 9 4","output":"Sorted Array: 9 5 4 2 1 0\nNumber of times to swap 2 numbers: 6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\UIT\\DSA\\Sorting\\Quick_sort.cpp","group":"local","local":true}
