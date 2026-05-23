@@ -1,1 +1,0 @@
-{"name":"Local: Moving_Average_from_Data_Stream","url":"d:\\UIT\\DSA\\LeetCode\\Moving_Average_from_Data_Stream.cpp","tests":[{"id":1777892963341,"input":"3\n4\n1\n10\n3\n5","output":"1.00000\n5.50000\n4.66667\n6.00000"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\UIT\\DSA\\LeetCode\\Moving_Average_from_Data_Stream.cpp","group":"local","local":true}
