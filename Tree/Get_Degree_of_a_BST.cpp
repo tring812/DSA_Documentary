@@ -36,17 +36,24 @@ void input(tree &t){
   }
 }
 
-int degree(const tree &t){
-  if(!t)  return 0;
-  int res = 0;
-  if(t->left) res++;
-  if(t->right)  res++;
-  return max(res, max(degree(t->left), degree(t->right)));
+int degree(const tree &t, int x){
+  if(!t)  return -1;
+  if(t->val == x){
+
+    int res = 0;
+    if(t->left) res++;
+    if(t->right)  res++;
+    return res;
+  }
+  if(t->val < x)  return degree(t->right, x);
+   else return degree(t->left, x);
 }
 
 int main(){
   tree t;
   t = nullptr;
   input(t);
-  cout << degree(t);
+  int x;
+  cin >> x;
+  cout << degree(t, x);
 }
